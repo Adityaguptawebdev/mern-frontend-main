@@ -22,6 +22,8 @@ export default function Footer() {
       </div>
       <div className="footer-bottom">
         &copy; {new Date().getFullYear()} ReBoxed. All rights reserved.
+        <br />
+        <span className="footer-dev">Developer: <a href="https://adiportfolio-orcin.vercel.app/" target="_blank" rel="noopener noreferrer">Aditya Gupta</a></span>
       </div>
     </footer>
   )
