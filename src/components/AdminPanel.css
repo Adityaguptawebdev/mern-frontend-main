@@ -138,6 +138,16 @@
 .admin-panel-search button:hover {
   background: #1e3c72;
 }
+.admin-table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+.ellipsis {
+  max-width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 @media (max-width: 900px) {
   .admin-panel-card {
     padding: 1.2rem 0.5rem 1.2rem 0.5rem;
@@ -163,5 +173,8 @@
   .admin-panel-table th, .admin-panel-table td {
     padding: 0.5rem 0.3rem;
     font-size: 0.95rem;
+  }
+  .admin-table-responsive {
+    max-width: 99vw;
   }
 } 

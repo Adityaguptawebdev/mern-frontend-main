@@ -163,33 +163,37 @@ export default function Products() {
         <input type="text" onChange={(e) => setSearchVal(e.target.value)} placeholder="Search products..." />
         <button onClick={fetchProducts}>Search</button>
       </div>
-      <table className="admin-panel-table">
-        <thead>
-          <tr>
-            <th>Product Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Image Url</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map((value) => (
-            <tr key={value._id}>
-              <td>{value.productName}</td>
-              <td>{value.description}</td>
-              <td>{value.price}</td>
-              <td>{value.imgUrl}</td>
-              <td>
-                <button onClick={() => handleEdit(value)}>Edit</button>
-                <button onClick={() => handleDelete(value._id)}>
-                  Delete
-                </button>
-              </td>
+      <div className="admin-table-responsive">
+        <table className="admin-panel-table">
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Image</th>
+              <th>Action</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {products.map((value) => (
+              <tr key={value._id}>
+                <td className="ellipsis">{value.productName}</td>
+                <td className="ellipsis">{value.description}</td>
+                <td>{value.price}</td>
+                <td>{value.imgUrl && <img src={value.imgUrl} alt={value.productName} style={{width:'60px',height:'60px',objectFit:'cover',borderRadius:'0.5rem',background:'#f8fafc',border:'1px solid #e3f0ff'}} />}</td>
+                <td>
+                  <div style={{display:'flex',gap:'0.5rem'}}>
+                    <button onClick={() => handleEdit(value)}>Edit</button>
+                    <button onClick={() => handleDelete(value._id)}>
+                      Delete
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <div className="admin-panel-pagination">
         <button disabled={page === 1} onClick={() => setPage(page - 1)}>
           Previous
